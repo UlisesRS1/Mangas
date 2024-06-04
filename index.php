@@ -5,8 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mangas</title>
     <link rel="icon" href="icon/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style-navbar-footer.css">
 </head>
 <body>
-    
+    <?php
+        include("php/navbar.php");
+    ?>
+
+
+
+    <?php
+        include("php/footer.php");
+    ?>
+    <script src="js/bootstrap.min.js"></script>
+
 </body>
 </html>
