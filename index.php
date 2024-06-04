@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mangas</title>
+    <link rel="icon" href="icon/logo.ico" type="image/x-icon">
 </head>
 <body>
-    <h1>Inicio de proyecto</h1>
+    
 </body>
 </html>
