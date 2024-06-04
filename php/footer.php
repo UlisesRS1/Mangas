@@ -1,4 +1,4 @@
-<footer class="text-center text-lg-start fixed-bottom color-nav-footer text-white">
+<footer class="text-center text-lg-start color-nav-footer text-white">
   <div class="d-flex p-3 justify-content-between align-items-center">
     ©2024 Manga reader
     <div class="d-flex">
