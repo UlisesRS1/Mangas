@@ -17,10 +17,10 @@
     <ul class="navbar-nav">
       <!-- Enlaces de navegación -->
       <li class="nav-item">
-        <a class="nav-link text-white" href="<?php echo BASE_URL; ?>php/upload_manga.php">Subir manga</a>
+        <a class="nav-link text-white" href="<?php echo BASE_URL?>index.php">Inicio</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link text-white" href="#">Enlace 2</a>
+        <a class="nav-link text-white" href="<?php echo BASE_URL; ?>php/upload_manga.php">Subir manga</a>
       </li>
       <!-- Agrega más enlaces según sea necesario -->
     </ul>
