@@ -100,7 +100,7 @@ session_start();
     <?php include("upload_manga_result.php"); ?>
 
     <script src="../js/valid.form.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             if (<?php echo isset($_SESSION['messages']) ? 'true' : 'false'; ?>) {
@@ -110,9 +110,11 @@ session_start();
         });
 
         // Limpiar la sesión después de mostrar los mensajes
-        if (<?php echo isset($_SESSION['messages']) ? 'true' : 'false'; ?>) {
-            <?php unset($_SESSION['messages']); ?>
+        <?php
+        if (isset($_SESSION['messages'])) {
+            unset($_SESSION['messages']);
         }
+        ?>
     </script>
 </body>
 </html>
