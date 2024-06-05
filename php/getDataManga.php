@@ -11,11 +11,11 @@
     if ($result->num_rows > 0) {
         while($row = $result->fetch_assoc()) {
             echo '<div class="card border-0 mt-1 mb-3" style="width: 18rem;">';
-            echo '<img src="'. $row["img_url_image"] .'" class="card-img-top" alt="Card image manga">';
+            echo '<img src="'. $row["img_url_image"] .'" class="card-img-top rounded" alt="Card image manga">';
             echo '<div class="card-body p-0">';
             echo '<h5 class="card-title fs-5 m-0">'.$row["nombre_manga"].'</h5>';
 
-            echo '<p class="card-text text-danger p-0">'.$row["estado"].'</p>';
+            echo '<p class="card-text text-secondary p-0">'.$row["estado"].'</p>';
             echo '</div>';
             echo '</div>';
         }

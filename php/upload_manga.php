@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -48,7 +51,7 @@
                 <div class="col-md-6 mb-3">
                     <label for="demography">Demografía</label>
                     <select class="form-control" id="demography" name="demography" required>
-                    <option value="">Selecciona una demografía...</option>
+                        <option value="">Selecciona una demografía...</option>
                         <?php
                         // Obtener las demografías
                         $sql = "SELECT id_demografia, demografia FROM demografias";
@@ -94,6 +97,22 @@
         </form>
     </div>
 
+    <?php include("upload_manga_result.php"); ?>
+
     <script src="../js/valid.form.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            if (<?php echo isset($_SESSION['messages']) ? 'true' : 'false'; ?>) {
+                var modal = new bootstrap.Modal(document.getElementById('uploadResultModal'));
+                modal.show();
+            }
+        });
+
+        // Limpiar la sesión después de mostrar los mensajes
+        if (<?php echo isset($_SESSION['messages']) ? 'true' : 'false'; ?>) {
+            <?php unset($_SESSION['messages']); ?>
+        }
+    </script>
 </body>
 </html>
