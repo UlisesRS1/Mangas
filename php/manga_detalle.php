@@ -1,6 +1,7 @@
 <?php
     // ejemplo.php
     include("database_connection.php");
+    include("estado_color.php");
     
     // Verificar si el parámetro 'id' está presente en la URL
     if (isset($_GET['id'])) {
@@ -22,6 +23,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +37,8 @@
 <body>
     <?php include("navbar.php")?>
     <div class="container mt-4">
-        <?php 
+        <div class="row">
+            <?php 
             // Mostrar la info de la consulta
             echo '<div class="card border-0">';
             echo '<div class="row g-0">';
@@ -46,12 +49,23 @@
             echo '<div class="card-body p-3">';
             echo '<h3 class="card-title">'.htmlspecialchars($row["nombre_manga"]).'</h3>';
             echo '<p class="card-text">'.htmlspecialchars($row["sinopsis"]).'</p>';
-            echo '<p class="card-text text-secondary p-0">'.htmlspecialchars($row["estado"]).'</p>';
+            echo estado_color($row['estado']);
             echo '</div>';
             echo '</div>';
             echo '</div>';
             echo '</div>';
-    
+            echo '</div>';
+             
+            echo '<div class="row">';
+            ?>
+            <!-- Botón para abrir el modal -->
+            <div class="col-md-12 mt-4 justify-content-center d-flex">
+                <button type="button" class="btn btn-primary fit-content w-100" data-bs-toggle="modal"
+                    data-bs-target="#uploadModal">
+                    Subir nuevo capítulo
+                </button>
+            </div>
+            <?php
             // Consulta para obtener los capítulos
             $sql_docs = "SELECT id, doc_url FROM manga_documents WHERE id_manga = ?";
             $stmt_docs = $conexion->prepare($sql_docs);
@@ -59,7 +73,7 @@
             $stmt_docs->execute();
             $result_docs = $stmt_docs->get_result();
             if ($result_docs->num_rows > 0) {
-                echo '<div class="accordion accordion-flush mt-4" id="accordion">';
+                echo '<div class="accordion accordion-flush mt-4 col-md-12" id="accordion">';
                 $index = 1;
                 while ($doc = $result_docs->fetch_assoc()) {
                     echo '<div class="accordion-item">';
@@ -70,7 +84,7 @@
                     echo '</h2>';
                     echo '<div id="flush-collapse' . $index . '" class="accordion-collapse collapse" data-bs-parent="#accordion">';
                     echo '<div class="accordion-body">';
-                    echo '<a href="manga_view.php?id=' . $doc['id'] . '" target="_blank">Ver Capítulo ' . $index . '</a>';
+                    echo '<a href="manga_view.php?id=' . $doc['id'] . '" target="_self">Ver Capítulo ' . $index . '</a>';
                     echo '</div>';
                     echo '</div>';
                     echo '</div>';
@@ -87,8 +101,32 @@
         echo '<div class="text-warning">No se proporcionó el ID de manera correcta.</div>';
     }
     ?>
-    </div>
+        </div>
+        <!-- Modal -->
+        <!-- Modal -->
+        <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="uploadModalLabel">Subir nuevos capítulos</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="upload_chapter.php" method="post" enctype="multipart/form-data">
+                            <div class="mb-3">
+                                <label for="chapterFiles" class="form-label">Selecciona los archivos PDF de los
+                                    capítulos</label>
+                                <input class="form-control" type="file" id="chapterFiles" name="chapterFiles[]" multiple
+                                    required>
+                            </div>
+                            <input type="hidden" name="manga_id" value="<?php echo $id; ?>">
+                            <button type="submit" class="btn btn-primary">Subir capítulos</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-    <script src="../js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
