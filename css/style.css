@@ -2,6 +2,10 @@
     width: 100%;
 }
 
+.fit-content{
+    height: fit-content;
+}
+
 /* Estilo base para la imagen */
 .size-img {
     width: 100%; /* Por defecto, ocupa todo el ancho */
@@ -10,14 +14,14 @@
 /* Media Query para tablet */
 @media (min-width: 768px) and (max-width: 991.98px) {
     .size-img {
-        width: 75%; /* La imagen ocupa el 50% del ancho en tablet */
+        width: 75%; /* La imagen ocupa el 75% del ancho en tablet */
     }
 }
 
 /* Media Query para computadora */
 @media (min-width: 992px) {
     .size-img {
-        width: 75%; /* La imagen ocupa el 50% del ancho en computadora */
+        width: 75%; /* La imagen ocupa el 75% del ancho en computadora */
     }
 }
 

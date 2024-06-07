@@ -2,6 +2,7 @@
 /* En este script se debe obtener la información del manga a
  traves de la base de datos para su uso en las cards del inicio (index.php)*/
     include("database_connection.php");
+    include("estado_color.php");
 
     $sql = "SELECT m.id_manga, m.img_url_image, m.nombre_manga, e.estado FROM mangas m INNER JOIN estado e ON m.id_estado = e.id_estado;";
     $result = $conexion->query($sql);
@@ -15,7 +16,7 @@
             echo '<h5 class="card-title fs-5 m-0">'.$row["nombre_manga"].'</h5>';
             echo '</div>';
             echo '</a>';
-            echo '<p class="card-text text-secondary p-0">'.$row["estado"].'</p>';
+            echo estado_color($row['estado']);
             echo '</div>';
         }
     } else {
