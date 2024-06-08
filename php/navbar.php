@@ -1,7 +1,7 @@
 <?php
   include("config.php");
 ?>
-<nav class="navbar navbar-expand-lg color-nav-footer">
+<nav class="navbar navbar-expand-lg color-nav-footer justify-content-around">
     <a class="navbar-brand text-white p-flex align-items-center" href="../index.php">
         <img src="../img/logo.png" width="50" height="50" alt="Logo de mangas reader">
         Manga reader
@@ -13,15 +13,18 @@
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- Espaciador -->
+     <div class="space d-md-none d-lg-block"></div>
+
     <!-- Contenido del navbar -->
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+    <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <!-- Enlaces de navegación -->
             <li class="nav-item">
-                <a class="nav-link text-white" href="<?php echo BASE_URL?>index.php">Inicio</a>
+                <a class="nav-link text-white ms-3" href="<?php echo BASE_URL?>index.php">Inicio</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-white" href="<?php echo BASE_URL; ?>php/upload_manga.php">Subir manga</a>
+                <a class="nav-link text-white ms-3" href="<?php echo BASE_URL; ?>php/upload_manga.php">Subir manga</a>
             </li>
             <!-- Agrega más enlaces según sea necesario -->
         </ul>
@@ -33,5 +36,9 @@
 <style>
 .navbar-toggler-icon {
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 1%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.navbar-collapse {
+    flex-grow: 0;
 }
 </style>
