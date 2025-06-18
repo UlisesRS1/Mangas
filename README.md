@@ -25,11 +25,11 @@ Para ejecutar este proyecto localmente, sigue los siguientes pasos:
 
 1. **Clona este repositorio:**
     ```bash
-    git clone https://github.com/tu-usuario/nombre-del-repositorio.git
+    git clone git@github.com:UlisesRS1/Mangas.git
     ```
 2. **Navega al directorio del proyecto:**
     ```bash
-    cd nombre-del-repositorio
+    cd nombre-proyecto
     ```
 3. **Configura tu entorno de desarrollo:**
     Asegúrate de tener un servidor web como XAMPP, WAMP o MAMP instalado y configurado.
